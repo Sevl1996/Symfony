@@ -1,0 +1,122 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <body style="background-size: cover; background-image:url({{asset('images/background/field2.jpg')}})">
+    <div style="font-family: Algerian ; font-size: large ; color: white">
+        <div class="col-md-6 col-md-offset-3">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+
+                    <div class="item active">
+                        <a href="/news1">
+                            <img src="{{ asset('images/background/el.jpg') }}" alt="EuropeLeague">
+                            <div class="carousel-caption">
+                                <div style="font-family: Arial ; font-size: large ; color: white; text-shadow: #080808 5px 5px;">
+                                    <h3>Europe League Final</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="item">
+                        <a href="/news2">
+                            <img src="{{ asset('images/background/uefa.jpg') }}" alt="Uefa">
+                            <div class="carousel-caption">
+                                <div style="font-family: Arial ; font-size: large ; color: white;">
+                                    <h3>UEFA Statement on Security</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a href="/news3">
+                            <img src="{{ asset('images/background/minute.jpg') }}" alt="Uefa">
+                            <div class="carousel-caption">
+                                <div style="font-family: Arial ; font-size: large ; color: white; text-shadow: #080808 5px 5px;">
+                                    <h3>Minute of silence before the finals of the Europa League</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <a class="left carousel-control" href="#myCarousel"  data-slide="prev">
+                    <span aria-hidden="true"><-</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span aria-hidden="true">-></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <br>
+        </div>
+
+        <div class="flex-container">
+                <div class="first-flex" style="background-image:url({{asset('images/other/image2.jpg')}});
+                        background-size:cover; ">
+                    <div style="font-family: Arial ; font-size: large ; color: white; text-shadow: #080808 5px 5px;">
+                        <h1>Bos: "Nerves are normal!"</h1>
+                    </div>
+                </div>
+
+                <div class="second-flex" style="background-image:url({{asset('images/other/image3.jpg')}});
+                        background-size:cover; ">
+
+                    <div style="font-family: Arial ; font-size: large ; color: white; text-shadow: #080808 5px 5px;">
+                        <h1>"Ajax" vs "MU": whose trumps are stronger?</h1>
+                    </div>
+                </div>
+
+                <div class="third-flex" style="background-image:url({{asset('images/other/image1.jpg')}});
+                        background-size:cover; ">
+                    <div style="font-family: Arial ; font-size: large ; color: white; text-shadow: #080808 5px 5px;">
+                        <h1>History and facts: "Ajax" - "Manchester United"</h1>
+                    </div>
+
+                </div>
+            </div>
+
+    <script>
+        $(document).ready(function(){
+            //Activate Carousel
+            $("#myCarousel").carousel();
+
+            //Enable Carousel Indicators
+            $(".item1").click(function(){
+                $("#myCarousel").carousel(0);
+            });
+            $(".item2").click(function(){
+                $("#myCarousel").carousel(1);
+            });
+            $(".item3").click(function(){
+                $("#myCarousel").carousel(2);
+            });
+
+            //Enable Carousel Controls
+            $(".left").click(function(){
+                $("#myCarousel").carousel("prev");
+            });
+            $(".right").click(function(){
+                $("#myCarousel").carousel("next");
+            });
+        });
+    </script>
+
+    </div>
+
+{% endblock %}

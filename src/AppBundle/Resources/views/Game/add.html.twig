@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<body style="background-size: cover; background-image:url({{asset('images/background/font4.jpg')}})">
+<div class="col-md-6 col-md-offset-3">
+    <div style="font-family: Arial ; font-size: large ; color: #080808">
+        <h2 class="page-header">Add Game</h2>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        <a class="btn btn-warning" href="/games">Back</a>
+    </div>
+</div>
+{% endblock %}

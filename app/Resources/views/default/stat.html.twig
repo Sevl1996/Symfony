@@ -1,0 +1,41 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/about.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <head>
+        <link rel="stylesheet" href="{{ asset('css/circle.css')}}" crossorigin="anonymous">
+    </head>
+<body style="background-size: cover; background-image:url({{asset('images/background/font4.jpg')}})">
+
+    <div style="font-family:  Arial; font-size: large; color: white;">
+
+        <div class="col-md-6 col-md-offset-3" style="background-color: white;border-radius: 10px;">
+            <div style="font-family:  Arial; font-size: large; color: black; text-align: center">
+                <h1>Goals scored in games</h1>
+            </div>
+
+
+            <div class="c100 p{{ percent }} green big">
+                <span>{{ percent }}%</span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+            </div>
+
+            <div style="font-family:  Arial; font-size: large; color: black; text-align: right">
+                <h3><b>Home goals = {{ homegoals }}</b></h3>
+            </div>
+            <div style="font-family:  Arial; font-size: large; color: black; text-align: right">
+                <h3><b>Away goals =  {{ gestgoals }}</b></h3>
+            </div>
+            <div style="font-family:  Arial; font-size: large; color: black; text-align: right">
+                <h3><b>Total goals = {{ homegoals + gestgoals }}</b></h3>
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

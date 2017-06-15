@@ -1,0 +1,91 @@
+<!-- app/Resources/views/base.html.twig -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Football Page{% endblock %}</title>
+    {% block stylesheets %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <script src="{{ asset('js/jquery-3.0.0.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/flex.css')}}" crossorigin="anonymous">
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="font-family:  Arial; font-size: large">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Football</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a href="/teams">Teams</a></li>
+            <li><a href="/games">Games</a></li>
+            <li><a href="/stat">Statistic</a></li>
+        </ul>
+
+        <ul class="nav navbar-right">
+            <img src="{{ asset('images/other/lc.png') }}"
+                 width="50px" height="55px" style="margin-right: 20px;">
+        </ul>
+
+
+
+
+        <ul class="nav navbar-nav navbar-right">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li style="font-family: Arial; color: grey; margin-right: 80px;"><a href="#">
+                    User name = {{ app.user.username }}
+                        </a>
+                    </li>
+                    <li style="font-family: Arial; color: grey; margin-right: 80px;"><a href="#">
+                            Role =
+                            {% if is_granted("ROLE_ADMIN") %}
+                                Admin
+                            {% else %}
+                                User
+                            {% endif %}
+                        </a>
+                    </li>
+                {% else %}
+                {% endif %}
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="/logout">Log out</a></li>
+            {% else %}
+                <li><a href="/login">Sign in</a></li>
+                <li><a href="/register">Register</a></li>
+            {% endif %}
+        </ul>
+
+    </nav>
+
+    {% block body %}
+
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
+    
+</body>
+
+{#<footer style="margin-top:5%;">#}
+    {#<div class="container-fluid" style="background-color:grey; display:flex; flex-direction:row; align-items:center;">#}
+        {#<div style="color: black; font-family: Arial;">#}
+            {#<div>#}
+
+            {#</div>#}
+            {#<div style="margin-left: 540px;">#}
+                {#<img src="{{ asset('images/connect/vk.png') }}" width="50px" height="55px">#}
+                {#<img src="{{ asset('images/connect/facebook.png') }}" width="50px" height="50px">#}
+                {#<img src="{{ asset('images/connect/twitter.png') }}" width="50px" height="50px">#}
+                {#<img src="{{ asset('images/connect/google.png') }}" width="50px" height="50px">#}
+                {#<img src="{{ asset('images/connect/youtube.png') }}" width="50px" height="50px">#}
+            {#</div>#}
+
+        {#</div>#}
+    {#</div>#}
+{#</footer>#}
+
+</html>

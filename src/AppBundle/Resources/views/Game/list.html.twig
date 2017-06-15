@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<body style="background-size: cover; background-image:url({{asset('images/background/font4.jpg')}})">
+<div class="col-md-7 col-md-offset-3">
+    <div style="font-family:  Arial; font-size: large">
+        <table class="table table-responsive table-condensed table-bordered" style="background-color: white">
+            <thead style="font-weight: bolder;">
+            <th>First team</th>
+            <th>Score</th>
+            <th>Second team</th>
+            <th>Place</th>
+            {% if is_granted("ROLE_ADMIN") %}
+            <th>Actions</th>
+            {% endif %}
+            </thead>
+            <tbody>
+            {% for game in games %}
+                <tr id="{{ game.id }}">
+                    <td><img src="{{ asset('images/logos/'~game.firstTeam.logo~'.png') }}"
+                             width="60px" height="60px"></td>
+                    <td><h3><b>
+                            {{ game.firstTeamGoals }}
+                            <img src="{{ asset('images/other/ball.png') }}"
+                                 width="20px" height="20px">
+                            {{ game.secondTeamGoals }}
+                            </b></h3></td>
+
+                    <td><img src="{{ asset('images/logos/'~game.secondTeam.logo~'.png') }}"
+                             width="60px" height="60px"></td>
+                    <td><h3><b>{{ game.firstTeam.homeArena }}</b></h3></td>
+                    {% if is_granted("ROLE_ADMIN") %}
+                    <td>
+                        <a href="/game/editGame/{{ game.id }}" class="btn btn-primary">Edit</a>
+                        <a href="/game/deleteGame/{{ game.id }}" class="btn btn-danger">Delete</a>
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="/game/addGame" class="btn btn-success">Add game</a>
+            <a href="/" class="btn btn-warning">Back</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}
+

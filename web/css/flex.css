@@ -1,0 +1,39 @@
+.flex-container{
+    width:100%;
+    height: 200px;
+    display: flex;
+    flex-flow:row nowrap;
+}
+
+.first-flex{
+    width: 120%;
+    height: 120%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.second-flex{
+    width: 120%;
+    height: 120%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.third-flex{
+    width: 120%;
+    height: 120%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.first-flex:hover{
+    opacity: 0.9;
+}
+
+.second-flex:hover{
+    opacity: 0.9;
+}
+
+.third-flex:hover{
+    opacity: 0.9;
+}
